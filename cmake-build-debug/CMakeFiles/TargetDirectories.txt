@@ -1,0 +1,3 @@
+C:/Users/DAVID/CLionProjects/ina_project/cmake-build-debug/CMakeFiles/ina_project.dir
+C:/Users/DAVID/CLionProjects/ina_project/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/DAVID/CLionProjects/ina_project/cmake-build-debug/CMakeFiles/rebuild_cache.dir
