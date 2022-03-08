@@ -1,6 +1,4 @@
-#include "MenuMethods/UserMenu.h" 
-//#include "./userAuth/logIn.h"
-//#include "./userAuth/register.h"
+#include "UserMenu.h"
 
 using namespace std;
 
