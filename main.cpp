@@ -1,9 +1,10 @@
-#include "./userAuth/logIn.h"
+#include "MenuMethods/UserMenu.h" 
+//#include "./userAuth/logIn.h"
 //#include "./userAuth/register.h"
 
 using namespace std;
 
 int main() {
-    logInUser("3102014714", "david123");
+    UserMenu();
     return 0;
 }
