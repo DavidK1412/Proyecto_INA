@@ -17,7 +17,7 @@ void logInUser(string username, string pass){
             if (user == username && pass == password){
                 cout << "Logueo exitoso como: " << user << endl ;
             }else{
-                cout << "Contraseña incorrecta!";
+                cout << "Contrasena incorrecta!";
             }
             archLeer >> user;
         }

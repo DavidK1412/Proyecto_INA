@@ -14,14 +14,14 @@ void UserMenuOptions(){
         case 1:
             cout<<"Ingrese su numero"<<endl;
             cin>>user;
-            cout<<"Ingrese su contraseña";
+            cout<<"Ingrese su contrasena";
             cin>>pass;
             logInUser(user, pass);
             break;
         case 2:
             cout<<"Ingrese su numero"<<endl;
             cin>>user;
-            cout<<"Ingrese su contraseña";
+            cout<<"Ingrese su contrasena";
             cin>>pass;
             createUser(user, pass);
             break;
