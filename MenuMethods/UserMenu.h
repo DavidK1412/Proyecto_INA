@@ -1,19 +1,29 @@
 #include <iostream>
 #include <fstream>
-//#include "../userAuth/logIn.h"
-//#include "../userAuth/register.h"
+#include "../userAuth/auth.h"
 
 using namespace std;
 
 void UserMenu();
 
 void UserMenuOptions(){
+    string user, pass; 
     int UserOpc = 0;
     cin >> UserOpc;
     switch(UserOpc){
         case 1:
+            cout<<"Ingrese su numero"<<endl;
+            cin>>user;
+            cout<<"Ingrese su contraseña";
+            cin>>pass;
+            logInUser(user, pass);
             break;
         case 2:
+            cout<<"Ingrese su numero"<<endl;
+            cin>>user;
+            cout<<"Ingrese su contraseña";
+            cin>>pass;
+            createUser(user, pass);
             break;
         default:
             cout << "Error!. Opcion no es valida.";
