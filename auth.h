@@ -3,6 +3,7 @@
 
 #include "encrypter.h"
 #include "verifyUser.h"
+#include "menu.h"
 
 using namespace std;
 
@@ -17,6 +18,8 @@ void logInUser(string username, string pass){
             if (user == username){
                 if(pass == password){
                     cout << "Logueo exitoso como: " << user << endl ;
+                    system("cls");
+                    menu(user);
                 }else{
                     cout << "Contrasena incorrecta!" << endl;
                 }
@@ -41,6 +44,7 @@ void createUser(string user, string pass){
         }else{
             accArch << user << "\t" << pass << "\t" << balance << endl;
             cout << "Usuario creado satisfactoriamente!" << endl;
+            menu(user);
         }
     }
     accArch.close();

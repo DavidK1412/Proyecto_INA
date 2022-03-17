@@ -1,5 +1,7 @@
 #include <iostream>
 
+#include "balanceActions.h"
+
 using namespace std;
 
 string username = "";
@@ -11,6 +13,7 @@ void menuOptions(){
     cin >> opc;
     switch(opc){
         case 1:
+            cout << "Su saldo actual es de: $" << getBalance(username) << endl;
             break;
         case 2:
             break;
