@@ -14,6 +14,10 @@ void UserMenuOptions(){
         case 1:
             cout<<"Ingrese su numero"<<endl;
             cin>>user;
+            if(user.length() != 10){
+                cout << "Error!. Los números de telefono sólo tienen 10 caracteres!\n";
+                break;
+            }
             cout<<"Ingrese su contrasena"<<endl;
             cin>>pass;
             logInUser(user, pass);
@@ -21,6 +25,10 @@ void UserMenuOptions(){
         case 2:
             cout<<"Ingrese su numero" << endl;
             cin>>user;
+            if(user.length() != 10){
+                cout << "Error!. Los números de telefono sólo tienen 10 caracteres!\n";
+                break;
+            }
             cout<<"Ingrese su contrasena" << endl;
             cin>>pass;
             createUser(user, pass);
@@ -28,6 +36,7 @@ void UserMenuOptions(){
         default:
             cout << "Error!. Opcion no es valida.";
             system("cls");
+            UserMenu();
             break;
     }
 }

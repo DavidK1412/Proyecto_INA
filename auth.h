@@ -19,6 +19,7 @@ void logInUser(string username, string pass){
                 if(pass == password){
                     cout << "Logueo exitoso como: " << user << endl ;
                     system("cls");
+                    archLeer.close();
                     menu(user);
                 }else{
                     cout << "Contrasena incorrecta!" << endl;
@@ -44,6 +45,7 @@ void createUser(string user, string pass){
         }else{
             accArch << user << "\t" << pass << "\t" << balance << endl;
             cout << "Usuario creado satisfactoriamente!" << endl;
+            accArch.close();
             menu(user);
         }
     }
