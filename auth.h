@@ -7,7 +7,7 @@
 
 using namespace std;
 
-void logInUser(string username, string pass){
+bool logInUser(string username, string pass){
     string user, password;
     if(verifyUser(username)) {
         ifstream archLeer("accounts.txt");
@@ -23,6 +23,9 @@ void logInUser(string username, string pass){
                     menu(user);
                 }else{
                     cout << "Contrasena incorrecta!" << endl;
+                    sleep(2);
+                    system("cls");
+                    return false;
                 }
             }
             archLeer >> user;
@@ -30,10 +33,13 @@ void logInUser(string username, string pass){
         archLeer.close();
     }else{
         cout << "Error, usuario no existe." << endl;
+        sleep(2);
+        system("cls");
+        return false;
     }
 }
 
-void createUser(string user, string pass){
+bool createUser(string user, string pass){
     int balance = 0;
     pass = encrypt(pass);
     ofstream accArch("accounts.txt", ios::app);
@@ -42,6 +48,9 @@ void createUser(string user, string pass){
     }else{
         if (verifyUser(user)){
             cout << "Error, usuario ya existe..." << endl;
+            sleep(2);
+            system("cls");
+            return false;
         }else{
             accArch << user << "\t" << pass << "\t" << balance << endl;
             cout << "Usuario creado satisfactoriamente!" << endl;
