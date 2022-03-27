@@ -20,6 +20,7 @@ int getBalance(string username){
         accounts >> user;
     }   
     accounts.close();
+    return 0;
 }
 
 bool addBalance(string username, int quantity){

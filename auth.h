@@ -56,5 +56,4 @@ bool createUser(string user, string pass){
     cout << "Usuario creado satisfactoriamente!" << endl;
     accArch.close();
     menu(user);
-
 }
