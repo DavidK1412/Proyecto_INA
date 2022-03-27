@@ -21,12 +21,17 @@ void menuOptions(){
             menu(username);
             break;
         case 2:
-            if(!addBalance(username)){
+            int quantity;
+            cout << "Ingrese la cantidad que desea agregar a su saldo, recuerde que su saldo actual es de: " << getBalance(username) << endl;
+            cin >> quantity;
+            if(!addBalance(username, quantity)){
                 sleep(2);
                 system("cls");
                 menu(username);
+                break;
             }
             cout << "Su nuevo saldo es de: $" << getBalance(username) << endl;
+            record("RECARGA", username, quantity);
             sleep(2);
             system("cls");
             menu(username);
@@ -39,6 +44,7 @@ void menuOptions(){
                 sleep(2);
                 system("cls");
                 menu(username);
+                break;
             }
             if(!transaction(username, userTo)){
                 sleep(2);
@@ -51,6 +57,16 @@ void menuOptions(){
             menu(username);
             break;
         case 4:
+            int res;
+            searchTransactions(username);
+            cout << "Escriba cualquier número para volver al menu" << endl;
+            cin >> res;
+            sleep(2);
+            system("cls");
+            menu(username);
+            break;
+        case 5:
+            cout << "Adiós!";
             break;
         default:
             cout << "Error!. Opcion no es valida.";
@@ -64,6 +80,6 @@ void menuOptions(){
 void menu(string user){
     username = user;
     cout << "\t Bienvenido al sistema de gestion bancaria!: " + username + " \t" << endl;
-    cout << "Ingrese el numero de la opcion a realizar: \n1. Consultar saldo\n2. Agregar saldo\n3. Transferir saldo\n4. Salir" <<endl;
+    cout << "Ingrese el numero de la opcion a realizar: \n1. Consultar saldo\n2. Agregar saldo\n3. Transferir saldo\n4. Ver historial transacciones\n5. Salir" <<endl;
     menuOptions();
 }

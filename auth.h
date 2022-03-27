@@ -9,6 +9,7 @@ using namespace std;
 
 bool logInUser(string username, string pass){
     string user, password;
+    int balance;
     if(!verifyUser(username)) {
                 cout << "Error, usuario no existe." << endl;
         sleep(2);
@@ -19,6 +20,7 @@ bool logInUser(string username, string pass){
     archLeer >> user;
     while (!archLeer.eof()){
         archLeer >> password;
+        archLeer >> balance;
         password = decrypt(password);
         if (user == username){
             if(pass == password){
