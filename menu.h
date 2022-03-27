@@ -25,12 +25,11 @@ void menuOptions(){
                 sleep(2);
                 system("cls");
                 menu(username);
-            }else{
-                cout << "Su nuevo saldo es de: $" << getBalance(username) << endl;
-                sleep(2);
-                system("cls");
-                menu(username);
             }
+            cout << "Su nuevo saldo es de: $" << getBalance(username) << endl;
+            sleep(2);
+            system("cls");
+            menu(username);
             break;
         case 3:
             cout << "Ingrese el número al que desea transferir" << endl;
@@ -45,12 +44,11 @@ void menuOptions(){
                 sleep(2);
                 system("cls");
                 menu(username);
-            }else{
-                cout << "Su nuevo saldo es de: $" << getBalance(username) << endl;
-                sleep(2);
-                system("cls");
-                menu(username);
             }
+            cout << "Su nuevo saldo es de: $" << getBalance(username) << endl;
+            sleep(2);
+            system("cls");
+            menu(username);
             break;
         case 4:
             break;
