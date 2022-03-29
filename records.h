@@ -1,48 +1,58 @@
 #include <iostream>
-#include <fstream> 
-
+#include <fstream>
+#include <stdio.h>
+#include <time.h>
 
 using namespace std;
- 
-/* Recibe: string1:"Recarga" string2:"3102391200"  string3:"3000"
-   Procedimiento: Abre el archivo trasnsactions.txt y escribe la transacción
-*/
+
+string getDate(){
+   time_t t = time(NULL);
+   struct tm tiempoLocal = *localtime(&t);
+   char fechaHora[70];
+   char *formato = "%Y-%m-%d-%H:%M:%S";
+   int bytesEscritos = strftime(fechaHora, sizeof fechaHora, formato, &tiempoLocal);
+   if (bytesEscritos != 0){
+      return fechaHora;
+   }
+   return "ERROR";
+}
+
 void record(string userFrom, string userTo, int quantity){
    ofstream arch("transactions.txt", ios::app);
-   if(!arch.is_open()){
+   if (!arch.is_open()){
       cout << "Error en registrar la transacción" << endl;
-   }else{
-      arch << userFrom << "\t" << userTo << "\t" << quantity;
+   }
+   else{
+      arch << userFrom << "\t" << userTo << "\t" << quantity << "\t" << getDate() << endl;
    }
    arch.close();
 }
-/* No recibe nada
-   Procedimiento: Busca las transacciones donde el número se ha visto involucrado e imprime
-   en pantalla la información de la transacción
-*/
+
 void searchTransactions(string username){
-   ifstream arch("transactions.txt");
-   string userFrom, userTo;
+   string userFrom, userTo, date;
    int quantity, count = 0;
-   if(!arch.is_open()){
+   ifstream arch("transactions.txt");
+   if (!arch.is_open()){
       cout << "Error interno!";
-   }else{
+   }
+   else{
       arch >> userFrom;
-      while(!arch.eof()){
+      while (!arch.eof()){
          arch >> userTo;
          arch >> quantity;
-         if(username != userFrom){
-            cout << "RECIBIDO DE: " + userFrom + " CANTIDAD: $" << quantity << endl;
+         arch >> date;
+         if (username != userFrom){
+            cout << "RECIBIDO DE: " + userFrom + " CANTIDAD: $" << quantity << " FECHA: " << date << endl;
             count++;
          }
-         if(username == userFrom){
-            cout << "ENVIADO A: " + userTo + " CANTIDAD: $" << quantity << endl;
+         if (username == userFrom){
+            cout << "ENVIADO A: " + userTo + " CANTIDAD: $" << quantity << " FECHA: " << date << endl;
             count++;
          }
          arch >> userFrom;
       }
-      if(count == 0){
-         cout << "No se han encontrado transacciones!" <<endl;
+      if (count == 0){
+         cout << "No se han encontrado transacciones!" << endl;
       }
    }
    arch.close();

@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include <windows.h>
 #include "balanceActions.h"
+#include "voucher.h"
 
 using namespace std;
 
@@ -61,11 +62,16 @@ void menuOptions(){
             searchTransactions(username);
             cout << "Escriba cualquier número para volver al menu" << endl;
             cin >> res;
-            sleep(2);
             system("cls");
             menu(username);
             break;
         case 5:
+            vouchers(username);
+            sleep(2);
+            system("cls");
+            menu(username);
+            break;
+        case 6:
             cout << "Adiós!";
             break;
         default:
@@ -80,6 +86,6 @@ void menuOptions(){
 void menu(string user){
     username = user;
     cout << "\t Bienvenido al sistema de gestion bancaria!: " + username + " \t" << endl;
-    cout << "Ingrese el numero de la opcion a realizar: \n1. Consultar saldo\n2. Agregar saldo\n3. Transferir saldo\n4. Ver historial transacciones\n5. Salir" <<endl;
+    cout << "Ingrese el numero de la opcion a realizar: \n1. Consultar saldo\n2. Agregar saldo\n3. Transferir saldo\n4. Ver historial transacciones\n5. Ver comprobantes\n6. Salir" <<endl;
     menuOptions();
 }
