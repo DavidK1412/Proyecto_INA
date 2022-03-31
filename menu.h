@@ -3,6 +3,7 @@
 #include <windows.h>
 #include "balanceActions.h"
 #include "voucher.h"
+#include "loan.h"
 
 using namespace std;
 
@@ -72,6 +73,12 @@ void menuOptions(){
             menu(username);
             break;
         case 6:
+            loanMenu(username);
+            sleep(2);
+            system("cls");
+            menu(username);
+            break;
+        case 7:
             cout << "Adiós!";
             break;
         default:
