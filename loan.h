@@ -1,10 +1,47 @@
 #include <iostream>
 #include <fstream>
+#include <string>
 
 using namespace std;
  
 string user;
+string loansInfo[3][6];
 
+void fillArray(){    
+    int i = 0;
+    ifstream loans("loans.txt");
+    if(loans){
+        loans >> loansInfo[i][0];
+        while(!loans.eof()){
+            if(loansInfo[i][0] == user){
+                loans >> loansInfo[i][1];
+                loans >> loansInfo[i][2];
+                loans >> loansInfo[i][3];
+                loans >> loansInfo[i][4];
+                loans >> loansInfo[i][5];
+                i++;
+            }
+            loans >> loansInfo[i][0];
+        }
+        loans.close();
+    }   
+}
+
+void printArray(string username){
+    int opc;
+    user = username;
+    fillArray();
+    cout << "Prestamo #" << "\t" << "Usuario" << "\t" << "Valor" << "\t" << "Meses" << "\t" << "Añadido ( > mes 4)" << "\t" << "Interes" << "\t" << "Cuota" <<endl;
+    for(int i = 0; i < 3; i++){
+        cout << i+1 << "." << "\t";
+        for(int j = 0; j < 6; j++){
+            cout << loansInfo[i][j] << "\t";
+        }
+        cout << endl;
+    }
+    cout << "Ingrese cualquier numero para continuar al menu" << endl;
+    cin >> opc;
+}
 int verifyLoans(){
     string username;
     int loanValue, months, plus, interest, fee, count = 0;
