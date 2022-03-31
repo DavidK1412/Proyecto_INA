@@ -5,7 +5,7 @@ using namespace std;
 
 bool verifyUser(string username){
     string user;
-    ifstream archLeer("accounts.txt");
+    ifstream archLeer("accounts.txt"); // arch
     archLeer >> user;
     while (!archLeer.eof()){
         if (user == username){

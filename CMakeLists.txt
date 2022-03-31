@@ -4,3 +4,4 @@ project(ina_project)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(ina_project main.cpp)
+

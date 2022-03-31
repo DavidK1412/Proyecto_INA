@@ -4,7 +4,7 @@ using namespace std;
 
 string encrypt(string txt){
     for (int i = 0; i < 100 && txt[i] != '\0'; i++) { //Caesar Cypher Algorithm
-        txt[i] = txt[i] + 2;
+        txt[i] = txt[i] + 2; // ASCII + 2
     }
     return txt;
 }
